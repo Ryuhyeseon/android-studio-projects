@@ -1,25 +1,122 @@
 package com.example.test250101
 
+import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.enableEdgeToEdge
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.util.Date
+import java.util.Locale
 
 // MainActivity : 알고리즘 작성
 // activity_main.xml : layout 설정
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() { // MainActivity가 AppCompatActivity 클래스를 상속한다는 의미
 
     // 생성 시 호출되는 fun
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-//        enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
+    @RequiresApi(Build.VERSION_CODES.O)
+    override fun onCreate(savedInstanceState: Bundle?) { // savedInstanceState는 Bundle? 타입의 매개변수
+        super.onCreate(savedInstanceState) // 부모 클래스인 AppCompatActivity의 onCreate 메서드를 호출하는 구문
+//        enableEdgeToEdge() // Status Bar & Navigation Bar까지 나오게 하는 설정
+        setContentView(R.layout.activity_main) // 매개변수에 지정한 내용을 액티비티 화면에 출력 (res/layout/activity_main.xml)
 //        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
 //            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
 //            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
 //            insets
-//        }
+//        } // 액티비티에 출력되는 내용이 Navigation Bar 등과 겹치지 않게 하기 위한 설정
+
+        // 출력
+        Log.d("결과1 : ", "결과1") // Logcat
+        println("결과2") // tag : System.out
+        System.out.println("결과3") // tag : System.out
+
+        // val 상수
+        val data1: Int = 10
+        val data2 = 20 // 추론 가능 시 타입 생략 가능
+        val data = data1 + data2
+
+        Log.d("data : ", data.toString())
+
+        // var 변수
+        var data3 = 30
+        data3 = data
+
+        val localDateTime: LocalDateTime = LocalDateTime.now() // 현재 날짜와 시간을 가져오는 LocalDateTime 객체 생성
+        val localDate: LocalDate = LocalDate.now() // 현재 날짜를 가져오는 LocalDate 객체 생성
+        val date: Date = Date() // 현재 시스템 시간을 기반으로 하는 Date 객체 생성
+
+        Log.d("DateLog1 : ", "LocalDateTime: $localDateTime") // LocalDateTime 객체를 문자열로 변환하여 로그로 출력($: 단순 변수 삽입)
+        Log.d("DateLog2 : ", "LocalDate: $localDate") // LocalDate 객체를 문자열로 변환하여 로그로 출력
+        Log.d("DateLog3 : ", "Formatted Date: ${formatDate(date)}") // Date 객체를 포맷팅하여 문자열로 변환 후 로그로 출력(${}: 표현식 또는 메서드 호출을 포함할 때 사용)
+
+        someFun()
+
+        println("sum(10, 20) : ${sum(10, 20)}")
+
+        lateinit var data4: String // byte, short, int, long, double, boolean lateinit 사용 불가능
+
     }
 
+    // 날짜를 특정 형식으로 변환하는 함수
+    fun formatDate(date: Date): String { // date 매개변수 이름, Date 매개변수 타입, String 함수 반환 타입
+        val sdf = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()) // Locale.getDefault()는 기기 설정에 따라 지역을 적용하여 "yyyy-MM-dd" 형식으로 날짜를 변환하기 위한 SimpleDateFormat 객체 생성
+        return sdf.format(date) // SimpleDateFormat 클래스의 format() 메서드를 호출하여 Date 객체를 지정된 형식으로 변환하여 반환
+    }
+
+    fun someFun(){
+        val data: Int // 초기화 x 타입 명시 필수
+        data = 100
+        println("fun someFun() data : $data")
+        println("fun someFun() data + 100 : ${data + 100}")
+        println("fun someFun() data.plus(100) : ${data.plus(100)}")
+
+        var data2: Int? = null // ? 널 대입 허용(?를 작성하지 않으면 null 허용 x)
+        val data3: Nothing? = null // Nullable Nothing 타입으로, 항상 null만 가질 수 있음
+
+        // if(data3 == null) fail("throw IllegalArgumentException(message) Nothing 타입 함수 호출")
+
+        val a1: Byte = 0b00001010
+        val a2: Int = 11
+        val a3: Short = 12
+        val a4: Long = 13L
+        val a5: Double = 14.0
+        val a6: Float = 15.0f
+        val a7: Boolean = true
+
+        val a8: Char = 'a'
+        val a9: String = "hello world"
+
+        val a10: Any = 16 // Any 타입 모든 값 대입 가능
+        val a11: Any = "String"
+        val a12: Any = innerclass()
+
+        println("fun someFun() a1 : $a1")
+        println("fun someFun() a2 : $a2")
+        println("fun someFun() a3 : $a3")
+        println("fun someFun() a4 : $a4")
+        println("fun someFun() a5 : $a5")
+        println("fun someFun() a6 : $a6")
+        println("fun someFun() a7 : $a7")
+        println("fun someFun() a8 : $a8")
+        println("fun someFun() a9 : $a9")
+        println("fun someFun() a10 : $a10")
+        println("fun someFun() a11 : $a11")
+        println("fun someFun() a12 : $a12")
+    }
+
+    // Nothing 타입 함수
+    fun fail(message: String): Nothing { // 절대 값을 반환하지 않으므로 함수의 반환 타입은 Nothing 타입
+        throw IllegalArgumentException(message)
+    }
+
+    fun sum(a: Int, b: Int): Int{
+        return a + b
+    }
+
+    class innerclass
 }
