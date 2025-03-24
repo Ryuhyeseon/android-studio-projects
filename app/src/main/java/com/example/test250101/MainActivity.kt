@@ -3,6 +3,7 @@ package com.example.test250101
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
@@ -22,13 +23,13 @@ class MainActivity : AppCompatActivity() { // MainActivity가 AppCompatActivity 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) { // savedInstanceState는 Bundle? 타입의 매개변수
         super.onCreate(savedInstanceState) // 부모 클래스인 AppCompatActivity의 onCreate 메서드를 호출하는 구문
-//        enableEdgeToEdge() // Status Bar & Navigation Bar까지 나오게 하는 설정
+        enableEdgeToEdge() // Status Bar & Navigation Bar까지 나오게 하는 설정
         setContentView(R.layout.activity_main) // 매개변수에 지정한 내용을 액티비티 화면에 출력 (res/layout/activity_main.xml)
-//        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-//            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-//            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-//            insets
-//        } // 액티비티에 출력되는 내용이 Navigation Bar 등과 겹치지 않게 하기 위한 설정
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        } // 액티비티에 출력되는 내용이 Navigation Bar 등과 겹치지 않게 하기 위한 설정
 
         // 출력
         Log.d("결과1 : ", "결과1") // Logcat
@@ -164,6 +165,11 @@ class MainActivity : AppCompatActivity() { // MainActivity가 AppCompatActivity 
         }
         println("")
         println("while sum : ${sum}")
+
+        // R.layout.activity_main <Button> 객체
+        val btn1:Button = findViewById(R.id.btn1)
+        val btn2:Button = findViewById(R.id.btn2)
+        val btn3:Button = findViewById(R.id.btn3)
 
     }
 
