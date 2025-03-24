@@ -60,6 +60,40 @@ class MainActivity : AppCompatActivity() { // MainActivity가 AppCompatActivity 
 
         lateinit var data4: String // byte, short, int, long, double, boolean lateinit 사용 불가능
 
+        // array
+        val array1:IntArray = IntArray(3, {0})
+        val array2:BooleanArray = BooleanArray(3, {false})
+        val array3 = intArrayOf(10, 20, 30)
+        val array4 = booleanArrayOf(true, false, false)
+
+        println("array1 size : ${array1.size}")
+        println("array1 data : ${array1[0]}, ${array1[1]}, ${array1[2]}")
+        println("array2 size : ${array2.size}")
+        println("array2 data : ${array2[0]}, ${array2[1]}, ${array2[2]}")
+        println("array3 size : ${array3.size}")
+        println("array3 data : ${array3[0]}, ${array3[1]}, ${array3[2]}")
+        println("array4 size : ${array4.size}")
+        println("array4 data : ${array4[0]}, ${array4[1]}, ${array4[2]}")
+
+        // list
+        var list = listOf<Int>(10, 20, 30)
+        println("list size : ${list.size}")
+        println("list data : ${list[0]}, ${list[1]}, ${list[2]}")
+
+        // mutableList
+        var mutableList = mutableListOf<Int>(10, 20, 30)
+        mutableList.add(3, 400)
+        mutableList.add(4, 500)
+        mutableList.set(0, 100)
+        mutableList.set(1, 200)
+        mutableList.set(2, 300)
+        println("mutableList size : ${mutableList.size}")
+        println("mutableList data : ${mutableList[0]}, ${mutableList[1]}, ${mutableList[2]}, ${mutableList[3]}, ${mutableList[4]}")
+
+        // map
+        var map = mapOf<String, String>(Pair("One", "hello"), "Two" to "world")
+        println("map size : ${map.size}")
+        println("map data : ${map.get("One")}, ${map.get("Two")}")
     }
 
     // 날짜를 특정 형식으로 변환하는 함수
