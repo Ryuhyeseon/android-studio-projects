@@ -94,6 +94,77 @@ class MainActivity : AppCompatActivity() { // MainActivity가 AppCompatActivity 
         var map = mapOf<String, String>(Pair("One", "hello"), "Two" to "world")
         println("map size : ${map.size}")
         println("map data : ${map.get("One")}, ${map.get("Two")}")
+
+        // if
+        if(mutableList[0] > 100){
+            println("mutableList[0] > 100")
+        }else if(mutableList[0] > 0 && mutableList[0] <= 100){
+            println("mutableList[0] > 0 && mutableList[0] <= 100")
+        }else{
+            println("mutableList[0] <= 0")
+        }
+
+        // if 표현식
+        val ifResult = if(mutableList[0] > 0){
+            println("mutableList[0] > 0")
+            true
+        }else{
+            println("mutableList[0] <= 0")
+            false
+        }
+        println("ifResult : ${ifResult}")
+
+        // when 1
+        when(mutableList[0]){
+            100 -> println("mutableList[0] is 100")
+            200 -> println("mutableList[0] is 200")
+            300 -> println("mutableList[0] is 300")
+            400 -> println("mutableList[0] is 400")
+            500 -> println("mutableList[0] is 500")
+            else -> println("mutableList[0] is not valid data")
+        }
+
+        // when 2
+        when(map.get("One")){
+            "hello" -> println("map.get(\"One\") is hello")
+            "world" -> println("map.get(\"One\") is world")
+            else -> println("map.get(\"One\") is not valid data")
+        }
+
+        // when 표현식
+        val whenResult = when(map.get("One")){
+            "hello" -> "map.get(\"One\") is hello"
+            "world" -> "map.get(\"One\") is world"
+            else -> "map.get(\"One\") is not valid data"
+        }
+        println("whenResult : ${whenResult}")
+
+        // for 1
+        var sum:Int = 0
+        for(i in 1..10){
+            sum += i
+        }
+        println("for1 sum : ${sum}")
+
+        // for 2
+        print("list data : ")
+        for(i in list.indices){
+            print(list[i])
+            if(i !== list.size - 1) print(", ")
+        }
+        println("")
+
+        // while
+        var x = 0
+        sum = 0
+        while(x<10){
+            sum += ++x
+            print(sum)
+            if(x<10) print(", ")
+        }
+        println("")
+        println("while sum : ${sum}")
+
     }
 
     // 날짜를 특정 형식으로 변환하는 함수
