@@ -29,4 +29,28 @@
         android:textSize="20dp"
         android:textStyle="bold"/>
 
+    <Button
+        android:id="@+id/testBtn3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="DatePickerDialog"
+        android:textSize="20dp"
+        android:textStyle="bold"/>
+
+    <Button
+        android:id="@+id/testBtn4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TimePickerDialog"
+        android:textSize="20dp"
+        android:textStyle="bold"/>
+
+    <Button
+        android:id="@+id/testBtn5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="AlertDialog"
+        android:textSize="20dp"
+        android:textStyle="bold"/>
+
 </LinearLayout>
