@@ -3,7 +3,16 @@
     <style name="Base.Theme.Test250101" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:statusBarColor">#0000FF</item> <!-- 파랑 -->
+        <item name="colorPrimary">#FF0000</item> <!-- 빨강 -->
+        <item name="colorAccent">#00FF00</item>
     </style>
 
     <style name="Theme.Test250101" parent="Base.Theme.Test250101" />
+
+    <style name="Base.Theme.Test250101.Actionbar" parent="Theme.Material3.DayNight">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
 </resources>
