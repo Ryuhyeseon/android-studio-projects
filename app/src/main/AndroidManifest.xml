@@ -34,6 +34,10 @@
             android:name=".TestActivity6"
             android:exported="false" />
         <activity
+            android:name=".TestActivity5"
+            android:exported="true"
+            android:theme="@style/Theme.Test250102" />
+        <activity
             android:name=".TestActivity4"
             android:exported="false" />
         <activity
@@ -51,15 +55,27 @@
             android:exported="false"
             android:theme="@style/Base.Theme.Test250101.Actionbar" /> <!-- TestActivity2를 기본 시작 액티비티로 설정 -->
         <activity
-            android:name=".TestActivity5"
-            android:exported="true"
-            android:theme="@style/Theme.Test250102">
+            android:name=".TestActivity8"
+            android:exported="true">
+
+            <!-- MyReciver 사용을 위한 intent-filter -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- MyReciver 사용을 위한 receiver -->
+        <receiver
+            android:name=".common.MyReceiver2"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <!-- android.intent.action.BOOT_COMPLETED 앱 부팅 완료 시 실행 -->
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
