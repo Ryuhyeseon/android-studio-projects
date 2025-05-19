@@ -14,6 +14,12 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_NUMBERS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission
+        android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"
+        tools:ignore="ProtectedPermissions" />
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
@@ -27,6 +33,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Test250101"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
 
         <service
@@ -39,6 +46,13 @@
             android:authorities="com.example.test250101"
             android:enabled="true"
             android:exported="true" />
+
+        <activity
+            android:name=".TestActivity15"
+            android:exported="false" />
+        <activity
+            android:name=".TestActivity14"
+            android:exported="false" />
         <activity
             android:name=".TestActivity13"
             android:exported="false" />
@@ -88,7 +102,7 @@
             android:name=".MainActivity"
             android:exported="false" /> <!-- 시작 액티비티 설정 -->
         <activity
-            android:name=".TestActivity14"
+            android:name=".TestActivity16"
             android:exported="true">
 
             <!-- MyReciver 사용을 위한 intent-filter -->
