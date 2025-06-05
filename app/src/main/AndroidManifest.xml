@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-    <!-- permission 사용 선언 -->
-    <uses-feature
-        android:name="android.hardware.telephony"
-        android:required="false" />
+
+    <!-- 사용 기능 및 권한 -->
+    <uses-feature android:name="android.hardware.telephony" android:required="false" />
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -16,9 +15,7 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_NUMBERS" />
     <uses-permission android:name="android.permission.READ_SMS" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission
-        android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"
+    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"
         tools:ignore="ProtectedPermissions" />
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
@@ -36,92 +33,48 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
 
-        <service
-            android:name=".MyService"
-            android:enabled="true"
-            android:exported="true" />
+        <!-- Activity 목록 -->
+        <activity android:name=".MainActivity" android:exported="false" />
+        <activity android:name=".TestActivity17" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".TestActivity16" android:exported="false" />
+        <activity android:name=".TestActivity15" android:exported="false" />
+        <activity android:name=".TestActivity14" android:exported="false" />
+        <activity android:name=".TestActivity13" android:exported="false" />
+        <activity android:name=".TestActivity12" android:exported="false" />
+        <activity android:name=".TestActivity11" android:exported="false" />
+        <activity android:name=".TestActivity10" android:exported="false" />
+        <activity android:name=".TestActivity9" android:exported="false" />
+        <activity android:name=".TestActivity8" android:exported="false" />
+        <activity android:name=".TestActivity7" android:exported="false" />
+        <activity android:name=".TestActivity6" android:exported="false" />
+        <activity android:name=".TestActivity5" android:exported="true" android:theme="@style/Theme.Test250102" />
+        <activity android:name=".TestActivity4" android:exported="false" />
+        <activity android:name=".TestActivity3" android:exported="false" />
+        <activity android:name=".TestActivity2" android:exported="false" android:theme="@style/Base.Theme.Test250101" />
+        <activity android:name=".TestActivity" android:exported="false" android:theme="@style/Base.Theme.Test250101.Actionbar" />
 
-        <provider
-            android:name=".MyContentProvider"
+        <!-- Service -->
+        <service android:name=".MyService" android:enabled="true" android:exported="true" />
+
+        <!-- ContentProvider -->
+        <provider android:name=".MyContentProvider"
             android:authorities="com.example.test250101"
             android:enabled="true"
             android:exported="true" />
 
-        <activity
-            android:name=".TestActivity15"
-            android:exported="false" />
-        <activity
-            android:name=".TestActivity14"
-            android:exported="false" />
-        <activity
-            android:name=".TestActivity13"
-            android:exported="false" />
-        <activity
-            android:name=".TestActivity12"
-            android:exported="false" />
-        <activity
-            android:name=".GalleryActivity"
-            android:exported="false" />
-        <activity
-            android:name=".TestActivity11"
-            android:exported="false" />
-        <activity
-            android:name=".TestActivity10"
-            android:exported="false" />
-        <activity
-            android:name=".TestActivity9"
-            android:exported="false" />
-        <activity
-            android:name=".TestActivity8"
-            android:exported="false" />
-        <activity
-            android:name=".TestActivity7"
-            android:exported="false" />
-        <activity
-            android:name=".TestActivity6"
-            android:exported="false" />
-        <activity
-            android:name=".TestActivity5"
-            android:exported="true"
-            android:theme="@style/Theme.Test250102" />
-        <activity
-            android:name=".TestActivity4"
-            android:exported="false" />
-        <activity
-            android:name=".TestActivity3"
-            android:exported="false" />
-        <activity
-            android:name=".TestActivity2"
-            android:exported="false"
-            android:theme="@style/Base.Theme.Test250101" />
-        <activity
-            android:name=".TestActivity"
-            android:exported="false"
-            android:theme="@style/Base.Theme.Test250101.Actionbar" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="false" /> <!-- 시작 액티비티 설정 -->
-        <activity
-            android:name=".TestActivity16"
-            android:exported="true">
-
-            <!-- MyReciver 사용을 위한 intent-filter -->
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity> <!-- TestActivity9 - MyReciver 사용을 위한 receiver -->
-        <receiver
-            android:name=".common.MyReceiver2"
+        <!-- BroadcastReceiver -->
+        <receiver android:name=".common.MyReceiver2"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
-
-                <!-- android.intent.action.BOOT_COMPLETED 앱 부팅 완료 시 실행 -->
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-    </application>
 
+    </application>
 </manifest>

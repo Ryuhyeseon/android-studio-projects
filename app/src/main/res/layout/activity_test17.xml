@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".TestActivity17">
+
+    <TextView
+        android:id="@+id/tvLocationInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="위치 정보가 여기에 표시됩니다."
+        android:textSize="18sp"
+        android:gravity="center"
+        android:layout_marginBottom="20dp" />
+
+    <Button
+        android:id="@+id/btnGetLastLocation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="마지막 위치 가져오기 (Fused)"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="10dp" />
+
+    <Button
+        android:id="@+id/btnRequestLocationUpdates"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="위치 업데이트 시작 (Fused)"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="10dp" />
+
+    <Button
+        android:id="@+id/btnStopLocationUpdates"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="위치 업데이트 중지 (Fused)"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+</LinearLayout>
